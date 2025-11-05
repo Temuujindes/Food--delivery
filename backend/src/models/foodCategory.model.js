@@ -5,19 +5,9 @@ const foodCategoryScheama = new Schema(
         },
 
     },
-    {timestamps:true
+    { timestamps:true
 
     }
 );
-export const foodCategory = model("foodCategory", foodCategoryScheama);
-backend/src/models/foodCategory.model.js
-import { Schema, model } from "mongoose";
+export const FoodCategory = model("foodCategory", foodCategoryScheama);
 
-const foodCategorySchema = new Schema(
-  {
-    categoryName: { type: String, required: true },
-  },
-  { timestamps: true }
-);
-
-export const FoodCategory = model("FoodCategory", foodCategorySchema);

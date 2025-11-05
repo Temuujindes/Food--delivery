@@ -1,21 +1,27 @@
 
 import express from "express";
 import bodyParser from "body-parser";
-import { config as configDotenv } from "dotenv";
-import { connectDB } from "./config/db.js";  // <-- fix here
+import { configDotenv } from "dotenv";
+import { connectDB } from "./config/db.js";
+
+import { FoodCategory } from "./models/foodCategory.model.js";
+
 
 configDotenv();
 
 const app = express();
 const port = process.env.PORT || 4000;
 
-app.get("/", (req, res) => {
-  res.send(" working");
 
+app.use(bodyParser.json());
+
+app.get("/", (req, res) => {
+  res.send("API working ");
 });
 
-connectDB(); 
+connectDB();
 
+console.log("MONGO_URI:", process.env.MONGO_URI); 
 app.listen(port, () => {
   console.log(`Server started on http://localhost:${port}`);
 });
